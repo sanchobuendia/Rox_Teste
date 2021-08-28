@@ -79,15 +79,22 @@ Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alte
 
 ![GitHub Logo](/Images/sales1.png)
 
+Neste banco os preços vieram com "," o que estava causando erro ao transformar para float. Pra solucionar este problema 
+troquei a vírgula por ponto e depois trasnformei para float. Aqui tb troquei o formato das datas de string para datetime.
+
 ### Sales.SalesOrderHeader
 
 ![GitHub Logo](/Images/header0.png)
 
 ![GitHub Logo](/Images/header1.png)
 
+Neste banco algumas variáveis possuem um número grande de misssing e poderiam ser retiradas.
+
 ### Sales.SpecialOfferProduct
 
 ![GitHub Logo](/Images/offer0.png)
+
+Por fim, neste banco alterie apenas o formato da coluna ModifiedDate para datetime.
 
 ![GitHub Logo](/Images/offer1.png)
 
@@ -107,20 +114,39 @@ Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alte
 
 2.	Escreva uma query que ligue as tabelas Sales.SalesOrderDetail, Sales.SpecialOfferProduct e Production.Product e retorne os 3 produtos (Name) mais vendidos (pela soma de OrderQty), agrupados pelo número de dias para manufatura (DaysToManufacture).
 
-    "select first(production.Name), sum(SalesDetail.OrderQty) as sum_OrderQty  \
-          from production LEFT JOIN SpecialOfferProduct ON production.ProductID = SpecialOfferProduct.ProductID \
-          LEFT JOIN SalesDetail ON SpecialOfferProduct.SpecialOfferID = SalesDetail.SalesOrderDetailID \
-          group by production.DaysToManufacture order by sum_OrderQty desc limit 3"
-          
+```sql
+"select first(production.Name), sum(SalesDetail.OrderQty) as sum_OrderQty  
+ from production LEFT JOIN SpecialOfferProduct ON production.ProductID = SpecialOfferProduct.ProductID 
+ LEFT JOIN SalesDetail ON SpecialOfferProduct.SpecialOfferID = SalesDetail.SalesOrderDetailID 
+ group by production.DaysToManufacture 
+ order by sum_OrderQty desc 
+ limit 3"
+```
  ![GitHub Logo](/Images/Q1.png)
 
 
 3.	Escreva uma query ligando as tabelas Person.Person, Sales.Customer e Sales.SalesOrderHeader de forma a obter uma lista de nomes de clientes e uma contagem de pedidos efetuados.
 
-
+```sql
+"select CONCAT(person.FirstName,' ', person.LastName) as Name, count(SalesHeader.SalesOrderID) as Qtd_orders 
+from SalesHeader LEFT JOIN SalesCustomer ON SalesCustomer.CustomerID = SalesHeader.CustomerID
+LEFT JOIN person ON person.BusinessEntityID = SalesCustomer.CustomerID 
+group by person.FirstName, person.MiddleName, person.LastName"
+```
+![GitHub Logo](/Images/Q3.png)
 4.	Escreva uma query usando as tabelas Sales.SalesOrderHeader, Sales.SalesOrderDetail e Production.Product, de forma a obter a soma total de produtos (OrderQty) por ProductID e OrderDate.
 
+```sql
+"select production.ProductID, first(production.Name) as Prodct_Names, SalesHeader.OrderDate, sum(SalesDetail.OrderQty) as Order_Qty
+ from production LEFT JOIN SalesDetail ON production.ProductID = SalesDetail.ProductID 
+ LEFT JOIN SalesHeader ON SalesDetail.SalesOrderID = SalesHeader.SalesOrderID 
+ group by production.ProductID, SalesHeader.OrderDate order by Order_Qty desc"
+```
 
+![GitHub Logo](/Images/Q4.png)
 5.	Escreva uma query mostrando os campos SalesOrderID, OrderDate e TotalDue da tabela Sales.SalesOrderHeader. Obtenha apenas as linhas onde a ordem tenha sido feita durante o mês de setembro/2011 e o total devido esteja acima de 1.000. Ordene pelo total devido decrescente.
-
-
+```sql
+"select SalesOrderID, OrderDate, TotalDue
+ from SalesHeader where OrderDate >= '2011-09-01' and OrderDate <= '2011-09-30' and TotalDue > 1000"
+```
+![GitHub Logo](/Images/Q5.png)
