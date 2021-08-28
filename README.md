@@ -153,18 +153,21 @@ group by person.FirstName, person.MiddleName, person.LastName"
 
 ### Merge de todas as bases
     
-    Uma opção é juntar todas as bases. Para isso, considerei mais razoável fazer left join. Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar um sufixo nos nomes das colunas.
+Uma opção é juntar todas as bases. Para isso, considerei mais razoável fazer left join.
+Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar um sufixo nos nomes das colunas.
     
 ![GitHub Logo](/Images/sufixos1.png)
 
 ![GitHub Logo](/Images/sufixos2.png)
 
 ```sql
-"select production.*, SpecialOfferProduct.*, SalesDetail.*, SalesHeader.*, SalesCustomer.*, person.*\
- from production LEFT JOIN SpecialOfferProduct ON production.ProductID_production = SpecialOfferProduct.ProductID_SpecialOfferProduct \
- LEFT JOIN SalesDetail ON SpecialOfferProduct.SpecialOfferID_SpecialOfferProduct = SalesDetail.SalesOrderDetailID_SalesDetail \
- LEFT JOIN SalesHeader ON SalesDetail.SalesOrderID_SalesDetail = SalesHeader.SalesOrderID_SalesHeader \
- LEFT JOIN SalesCustomer ON SalesCustomer.CustomerID_SalesCustomer = SalesHeader.CustomerID_SalesHeader \
+"select production.*, SpecialOfferProduct.*, SalesDetail.*, SalesHeader.*, SalesCustomer.*, person.*
+ from production LEFT JOIN SpecialOfferProduct ON production.ProductID_production = SpecialOfferProduct.ProductID_SpecialOfferProduct 
+ LEFT JOIN SalesDetail ON SpecialOfferProduct.SpecialOfferID_SpecialOfferProduct = SalesDetail.SalesOrderDetailID_SalesDetail 
+ LEFT JOIN SalesHeader ON SalesDetail.SalesOrderID_SalesDetail = SalesHeader.SalesOrderID_SalesHeader 
+ LEFT JOIN SalesCustomer ON SalesCustomer.CustomerID_SalesCustomer = SalesHeader.CustomerID_SalesHeader 
  LEFT JOIN person ON person.BusinessEntityID_person = SalesCustomer.CustomerID_SalesCustomer"
 ```sql
+
+## Visualização dos dados
 
