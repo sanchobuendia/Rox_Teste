@@ -5,7 +5,7 @@
     
     O objetivo deste desafio é compreender os seus conhecimentos e experiência analisando os seguintes aspectos:
     
-    * Fazer a modelagem conceitual dos dados;
+    1. Fazer a modelagem conceitual dos dados;
     2. Criação da infraestrutura necessária;
     3. Criação de todos os artefatos necessários para carregar os arquivos para o banco criado;
     4. Desenvolvimento de SCRIPT para análise de dados;
