@@ -13,12 +13,12 @@
     
 Os seguintes arquivos devem ser importados (ETL) para o banco de dados de sua escolha: 
 
-    • Sales.SpecialOfferProduct.csv
-    • Production.Product.csv
-    • Sales.SalesOrderHeader.csv
-    • Sales.Customer.csv
     • Person.Person.csv
+    • Production.Product.csv
+    • Sales.Customer.csv
     • Sales.SalesOrderDetail.csv
+    • Sales.SalesOrderHeader.csv
+    • Sales.SpecialOfferProduct.csv
 
 ### Person.Person
 
@@ -78,3 +78,7 @@ Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alte
 ![GitHub Logo](/Images/sales0.png)
 
 ![GitHub Logo](/Images/sales1.png)
+
+### Sales.SpecialOfferProduct
+
+
