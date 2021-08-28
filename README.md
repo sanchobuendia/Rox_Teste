@@ -21,6 +21,7 @@ Os seguintes arquivos devem ser importados (ETL) para o banco de dados de sua es
     • Sales.SalesOrderDetail.csv
 
 
+Iniciei a exploração das bases pelo banco Person.Person.csv.
 
 
 
