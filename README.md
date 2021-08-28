@@ -67,7 +67,15 @@ Como as queries que são pedidas não envolvem as características dos produtos 
 
 Este banco possui os dados sobre as as lojas.
 
+![GitHub Logo](/Images/store00.png)
 
+![GitHub Logo](/Images/store0.png)
 
+Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alterei apenas o formato da coluna ModifiedDate.
 
+### Sales.SalesOrderDetail
+
+![GitHub Logo](/Images/salesorderdetail0.png)
+
+![GitHub Logo](/Images/salesorderdetail1.png)
 
