@@ -167,7 +167,8 @@ Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar
  LEFT JOIN SalesHeader ON SalesDetail.SalesOrderID_SalesDetail = SalesHeader.SalesOrderID_SalesHeader 
  LEFT JOIN SalesCustomer ON SalesCustomer.CustomerID_SalesCustomer = SalesHeader.CustomerID_SalesHeader 
  LEFT JOIN person ON person.BusinessEntityID_person = SalesCustomer.CustomerID_SalesCustomer"
-```sql
+```
+
 
 ## Visualização dos dados
 
