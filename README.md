@@ -112,7 +112,7 @@ Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alte
           LEFT JOIN SalesDetail ON SpecialOfferProduct.SpecialOfferID = SalesDetail.SalesOrderDetailID \
           group by production.DaysToManufacture order by sum_OrderQty desc limit 3"
           
- ![GitHub Logo](/Images/sales0.png)
+ ![GitHub Logo](/Images/Q1.png)
 
 
 3.	Escreva uma query ligando as tabelas Person.Person, Sales.Customer e Sales.SalesOrderHeader de forma a obter uma lista de nomes de clientes e uma contagem de pedidos efetuados.
