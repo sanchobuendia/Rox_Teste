@@ -41,6 +41,17 @@ Os missings dessas variáveis restantes foram tratados da seguinte forma:
  * TotalChildren, NumberChildrenAtHome e NumberCarsOwned: preenchi com a moda.
  * MaritalStatus, YearlyIncome, Gender, Education, Occupation, HomeOwnerFlag e CommuteDistance: Essas colunas são categóricas e preenchi os missings com 'undefined'.
 
+![GitHub Logo](/Images/missing_person1.png)
+
+Para fins de limpeza poderia exluir as linhas com missing nas colunas MaritalStatus e YearlyIncome, mas não fiz isso. Para não perder as variáveis BirthDate e DateFirstPurchase, pode ser feita alguma imputação. Excluir as linhas parece ser algo complicado por legaria 7% da base.
+
+Esta primeira parte foi feita em pandas. Para uma base maior isso pode ser problemático pq demoraria muito. No processo de criação das variáveis a partir da variável **Demographics** eu usei dois loops, isso tb é complicado pq o código fica lento. Seria necessário pensar uma forma mais eficiente de fazer as mudanças.
+
+Eu abri o banco Person.Person em pandas criei um novo dataframe com as novas variáveis e mesma quantidade de linhas e juntei com o arquivo original.
+Tentei transforma o pandas dataframe em pyspark dataframe mas deu erro. Não procurei uma solução e optei por salvá-lo e abrir o arquivo com pyspark.
+
+Nesta segunda parte eu importo o banco Person.Person com novas features e os outros bancos utilizando spark. Como já falei sobre a organização e limpeza do banco Person.Person, o proximo banco analisado foi **Production.Product**
+
 
 
 
