@@ -79,6 +79,15 @@ Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alte
 
 ![GitHub Logo](/Images/sales1.png)
 
+### Sales.SalesOrderHeader
+
+![GitHub Logo](/Images/header0.png)
+
+![GitHub Logo](/Images/header1.png)
+
 ### Sales.SpecialOfferProduct
 
+![GitHub Logo](/Images/offer0.png)
+
+![GitHub Logo](/Images/offer1.png)
 
