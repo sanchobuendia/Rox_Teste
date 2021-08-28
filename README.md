@@ -1,6 +1,6 @@
 # Rox_Teste
 
-### O problema 
+## O problema 
     O presente problema se refere aos dados de uma empresa que produz bicicletas. 
     
     O objetivo deste desafio é compreender os seus conhecimentos e experiência analisando os seguintes aspectos:
@@ -20,6 +20,7 @@ Os seguintes arquivos devem ser importados (ETL) para o banco de dados de sua es
     • Person.Person.csv
     • Sales.SalesOrderDetail.csv
 
+### Person.Person
 
 Iniciei a exploração das bases pelo banco Person.Person.csv.
 
@@ -50,9 +51,21 @@ Esta primeira parte foi feita em pandas. Para uma base maior isso pode ser probl
 Eu abri o banco Person.Person em pandas criei um novo dataframe com as novas variáveis e mesma quantidade de linhas e juntei com o arquivo original.
 Tentei transforma o pandas dataframe em pyspark dataframe mas deu erro. Não procurei uma solução e optei por salvá-lo e abrir o arquivo com pyspark.
 
-Nesta segunda parte eu importo o banco Person.Person com novas features e os outros bancos utilizando spark. Como já falei sobre a organização e limpeza do banco Person.Person, o proximo banco analisado foi **Production.Product**
+Nesta segunda parte eu importo o banco Person.Person com novas features e os outros bancos utilizando spark. 
 
+### Production.Product
 
+Como já falei sobre a organização e limpeza do banco Person.Person, o proximo banco analisado foi **Production.Product**
+
+![GitHub Logo](/Images/product0.png)
+
+![GitHub Logo](/Images/product1.png)
+
+Como as queries que são pedidas não envolvem as características dos produtos optei por não tratar esses missings. Nesse banco alterei apenas o formato das datas e coloquei em float as variáveis de preço.
+
+### Sales.Customer
+
+Este banco possui os dados sobre as as lojas.
 
 
 
