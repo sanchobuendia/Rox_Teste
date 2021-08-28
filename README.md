@@ -75,5 +75,6 @@ Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alte
 
 ### Sales.SalesOrderDetail
 
-![GitHub Logo](/Images/store0.png)
+![GitHub Logo](/Images/sales0.png)
 
+![GitHub Logo](/Images/sales1.png)
