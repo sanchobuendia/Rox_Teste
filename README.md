@@ -194,7 +194,7 @@ Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar
 
 ## Visualização dos dados
 
-![GitHub Logo](/Images/itens_vendidos.png)
+![GitHub Logo](/Images/qtd_vendida.png)
 
 ![GitHub Logo](/Images/vendas_reais.png)
 
