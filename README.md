@@ -123,6 +123,25 @@ Este banco não possui problemas na estrutura. Por fim, alterei apenas o formato
 
 ## Análise de dados
 
+### Merge de todas as bases
+    
+Uma opção é juntar todas as bases. Para isso, considerei mais razoável fazer left join.
+Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar um sufixo nos nomes das colunas.
+    
+![GitHub Logo](/Images/sufixos1.png)
+
+![GitHub Logo](/Images/sufixos2.png)
+
+```sql
+"select production.*, SpecialOfferProduct.*, SalesDetail.*, SalesHeader.*, SalesCustomer.*, person.*
+ from production LEFT JOIN SpecialOfferProduct ON production.ProductID_production = SpecialOfferProduct.ProductID_SpecialOfferProduct 
+ LEFT JOIN SalesDetail ON SpecialOfferProduct.SpecialOfferID_SpecialOfferProduct = SalesDetail.SalesOrderDetailID_SalesDetail 
+ LEFT JOIN SalesHeader ON SalesDetail.SalesOrderID_SalesDetail = SalesHeader.SalesOrderID_SalesHeader 
+ LEFT JOIN SalesCustomer ON SalesCustomer.CustomerID_SalesCustomer = SalesHeader.CustomerID_SalesHeader 
+ LEFT JOIN person ON person.BusinessEntityID_person = SalesCustomer.CustomerID_SalesCustomer"
+```
+
+
 ##### Com base na solução implantada responda aos seguintes questionamentos:
 
 1.	**Escreva uma query que retorna a quantidade de linhas na tabela Sales.SalesOrderDetail pelo campo SalesOrderID, desde que tenham pelo menos três linhas de detalhes.**
@@ -172,25 +191,6 @@ group by person.FirstName, person.MiddleName, person.LastName"
  from SalesHeader where OrderDate >= '2011-09-01' and OrderDate <= '2011-09-30' and TotalDue > 1000"
 ```
 ![GitHub Logo](/Images/Q5.png)
-
-### Merge de todas as bases
-    
-Uma opção é juntar todas as bases. Para isso, considerei mais razoável fazer left join.
-Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar um sufixo nos nomes das colunas.
-    
-![GitHub Logo](/Images/sufixos1.png)
-
-![GitHub Logo](/Images/sufixos2.png)
-
-```sql
-"select production.*, SpecialOfferProduct.*, SalesDetail.*, SalesHeader.*, SalesCustomer.*, person.*
- from production LEFT JOIN SpecialOfferProduct ON production.ProductID_production = SpecialOfferProduct.ProductID_SpecialOfferProduct 
- LEFT JOIN SalesDetail ON SpecialOfferProduct.SpecialOfferID_SpecialOfferProduct = SalesDetail.SalesOrderDetailID_SalesDetail 
- LEFT JOIN SalesHeader ON SalesDetail.SalesOrderID_SalesDetail = SalesHeader.SalesOrderID_SalesHeader 
- LEFT JOIN SalesCustomer ON SalesCustomer.CustomerID_SalesCustomer = SalesHeader.CustomerID_SalesHeader 
- LEFT JOIN person ON person.BusinessEntityID_person = SalesCustomer.CustomerID_SalesCustomer"
-```
-
 
 ## Visualização dos dados
 
