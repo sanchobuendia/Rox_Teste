@@ -71,7 +71,7 @@ Este banco possui os dados sobre as as lojas.
 
 ![GitHub Logo](/Images/store00.png)
 
-![GitHub Logo](/Images/store01.png)
+![GitHub Logo](/Images/store0.png)
 
 ![GitHub Logo](/Images/salescostumerfinal.png)
 
