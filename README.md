@@ -42,7 +42,7 @@ Os missings dessas variáveis restantes foram tratados da seguinte forma:
  * TotalChildren, NumberChildrenAtHome e NumberCarsOwned: preenchi com a moda.
  * MaritalStatus, YearlyIncome, Gender, Education, Occupation, HomeOwnerFlag e CommuteDistance: Essas colunas são categóricas e preenchi os missings com 'undefined'.
 
-![GitHub Logo](/Images/missing_person1.png)
+![GitHub Logo](/Images/personfinal.png)
 
 Para fins de limpeza poderia exluir as linhas com missing nas colunas MaritalStatus e YearlyIncome, mas não fiz isso. Para não perder as variáveis BirthDate e DateFirstPurchase, pode ser feita alguma imputação. Excluir as linhas parece ser algo complicado por legaria 7% da base.
 
@@ -61,6 +61,8 @@ Como já falei sobre a organização e limpeza do banco Person.Person, o proximo
 
 ![GitHub Logo](/Images/product1.png)
 
+![GitHub Logo](/Images/productionfinal.png)
+
 Como as queries que são pedidas não envolvem as características dos produtos optei por não tratar esses missings. Nesse banco alterei apenas o formato das datas e coloquei em float as variáveis de preço.
 
 ### Sales.Customer
@@ -69,7 +71,9 @@ Este banco possui os dados sobre as as lojas.
 
 ![GitHub Logo](/Images/store00.png)
 
-![GitHub Logo](/Images/store0.png)
+![GitHub Logo](/Images/store01.png)
+
+![GitHub Logo](/Images/salescostumerfinal.png)
 
 Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alterei apenas o formato da coluna ModifiedDate.
 
@@ -78,6 +82,8 @@ Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alte
 ![GitHub Logo](/Images/sales0.png)
 
 ![GitHub Logo](/Images/sales1.png)
+
+![GitHub Logo](/Images/salesdetailfinal.png)
 
 Neste banco os preços vieram com "," o que estava causando erro ao transformar para float. Pra solucionar este problema 
 troquei a vírgula por ponto e depois trasnformei para float. Aqui tb troquei o formato das datas de string para datetime.
@@ -88,15 +94,19 @@ troquei a vírgula por ponto e depois trasnformei para float. Aqui tb troquei o 
 
 ![GitHub Logo](/Images/header1.png)
 
+![GitHub Logo](/Images/salesheaderfinal.png)
+
 Neste banco algumas variáveis possuem um número grande de misssing e poderiam ser retiradas.
 
 ### Sales.SpecialOfferProduct
 
 ![GitHub Logo](/Images/offer0.png)
 
+![GitHub Logo](/Images/offer1.png)
+
 Por fim, neste banco alterie apenas o formato da coluna ModifiedDate para datetime.
 
-![GitHub Logo](/Images/offer1.png)
+![GitHub Logo](/Images/salesofferfinal.png)
 
 
 ## Análise de dados
