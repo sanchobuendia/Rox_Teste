@@ -198,7 +198,7 @@ Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar
 
 ![GitHub Logo](/Images/vendas_reais.png)
 
-![GitHub Logo](/Images/sufixos2.png)
+![GitHub Logo](/Images/sexo.png)
 
 ![GitHub Logo](/Images/sufixos2.png)
 
