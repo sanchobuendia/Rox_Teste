@@ -194,6 +194,17 @@ Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar
 
 ## Visualização dos dados
 
+A visualização dos dados ajuda a entender os dados. São muitas as possiblidades de investigação, como por exemplo:
+    * Quantidade de vendas diárias.
+    * Quantidade vendida em reais por dia.
+    * Quanto cada loja vende.
+    * Analisar o perfil de dos compradores de cada região
+    * Cruzar os perfis dos clientes com os descontos, valores e produtos. Com isso otimizar os descontos e as ofertas.
+    * Pode-se investigar quais as épocas do ano com mais vendas.
+    * Quanto tempo é gasto entre a compra e o envio do produto.
+    
+    A seguir eu plotei alguns gráficos como exemplo do que pode ser feito.
+    
 ![GitHub Logo](/Images/qtd_vendida.png)
 
 ![GitHub Logo](/Images/vendas_reais.png)
@@ -201,3 +212,5 @@ Contudo, como algumas bases possuem calunas com mesmo nome, achei melhor colocar
 ![GitHub Logo](/Images/clientes_sexo.png)
 
 ![GitHub Logo](/Images/clientes_escolaridade.png)
+
+Essas visualizações podem ser automatizadas para gerarem reports com intervalos de tempo definidos.
