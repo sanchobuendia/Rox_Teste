@@ -19,6 +19,11 @@ Os seguintes arquivos devem ser importados (ETL) para o banco de dados de sua es
     • Sales.SalesOrderDetail.csv
     • Sales.SalesOrderHeader.csv
     • Sales.SpecialOfferProduct.csv
+    
+###
+
+    Na rimeira parte, fiz a análise de cada banco separadamente. Nesta ana1lise eu altero o formato de algumas
+    variáveis para float, int ou date, faço a imputação de valores faltantes e retiro colunas com muitos missings.
 
 ### Person.Person
 
@@ -32,19 +37,17 @@ Todas as variáveis estão como string (em todos os arquivos) as variáveis de p
 
 ![GitHub Logo](/Images/demo_row.png)
 
-Após algumas manipulações, utilizando o pandas, criei estas novas variáveis: TotalPurchase, DateFirstPurchase, BirthDate, MaritalStatus, YearlyIncome, Gender, TotalChildren, NumberChildrenAtHome, Education, Occupation, HomeOwnerFlag, NumberCarsOwned e CommuteDistance. Contudo, alguns clientes não possuem algumas dessas informações. 
-
-obs: não tratei os missings das colunas DateFirstPurchase e BirthDate.
+Após algumas manipulações, utilizando o pandas, criei estas novas variáveis: TotalPurchase, DateFirstPurchase, BirthDate, MaritalStatus, YearlyIncome, Gender, TotalChildren, NumberChildrenAtHome, Education, Occupation, HomeOwnerFlag, NumberCarsOwned, CommuteDistance, DateFirstPurchase e BirthDate. Contudo, alguns clientes não possuem algumas dessas informações.
 
 Os missings dessas variáveis restantes foram tratados da seguinte forma:
 
  * TotalPurchase: preenchi com o valor médio.
  * TotalChildren, NumberChildrenAtHome e NumberCarsOwned: preenchi com a moda.
- * MaritalStatus, YearlyIncome, Gender, Education, Occupation, HomeOwnerFlag e CommuteDistance: Essas colunas são categóricas e preenchi os missings com 'undefined'.
+ * MaritalStatus, YearlyIncome, Gender, Education, Occupation, HomeOwnerFlag, CommuteDistance, MaritalStatus e YearlyIncome: Essas colunas são categóricas e preenchi os missings com 'undefined'.
+ * DateFirstPurchase e BirthDate: Neste caso eu optei por preencher com a data mais frequente dentro da distribuição. Acredito que isso não enviezaria futuras análises.
 
 ![GitHub Logo](/Images/personfinal.png)
 
-Para fins de limpeza poderia exluir as linhas com missing nas colunas MaritalStatus e YearlyIncome, mas não fiz isso. Para não perder as variáveis BirthDate e DateFirstPurchase, pode ser feita alguma imputação. Excluir as linhas parece ser algo complicado por legaria 7% da base.
 
 Esta primeira parte foi feita em pandas. Para uma base maior isso pode ser problemático pq demoraria muito. No processo de criação das variáveis a partir da variável **Demographics** eu usei dois loops, isso tb é complicado pq o código fica lento. Seria necessário pensar uma forma mais eficiente de fazer as mudanças.
 
@@ -59,11 +62,17 @@ Como já falei sobre a organização e limpeza do banco Person.Person, o proximo
 
 ![GitHub Logo](/Images/product0.png)
 
+    * Inicialmente eu retirei as colunas DiscontinuedDate e SellEndDate por possuírem mais de 80% de missings.
+    * As variáveis ProductModelID e ProductSubcategoryID são códigos. Diante da dificuldade em fazer a imputação
+        de códigos desconhecidos eu retirei essas colunas.
+    * A Weight representa o peso do produto. Retirei essa coluna.
+    * As coutras colunas com missing são categóriacas e algumas células estão preenchidas com a string "NULL". 
+        Eu substituí essa string pela string 'undefined'.
+
 ![GitHub Logo](/Images/product1.png)
 
 ![GitHub Logo](/Images/productionfinal.png)
 
-Como as queries que são pedidas não envolvem as características dos produtos optei por não tratar esses missings. Nesse banco alterei apenas o formato das datas e coloquei em float as variáveis de preço.
 
 ### Sales.Customer
 
@@ -75,7 +84,7 @@ Este banco possui os dados sobre as as lojas.
 
 ![GitHub Logo](/Images/salescostumerfinal.png)
 
-Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alterei apenas o formato da coluna ModifiedDate.
+A coluna StoreID tem 93.26% de missing, decidi retirá-la. Por fim, alterei apenas o formato da coluna ModifiedDate.
 
 ### Sales.SalesOrderDetail
 
@@ -88,15 +97,18 @@ Poderia ter retirado a coluna StoreID, mas decidi não fazer isso. Por fim, alte
 Neste banco os preços vieram com "," o que estava causando erro ao transformar para float. Pra solucionar este problema 
 troquei a vírgula por ponto e depois trasnformei para float. Aqui tb troquei o formato das datas de string para datetime.
 
+A coluna CarrierTrackingNumber possui 49.79% das células com a string "NULL" esse código não seria útil em análises estatísticas e poderia ser retirada da base, mas decidi substituir a string "NULL" por 'undefined'.
+
 ### Sales.SalesOrderHeader
 
 ![GitHub Logo](/Images/header0.png)
 
 ![GitHub Logo](/Images/header1.png)
 
-![GitHub Logo](/Images/salesheaderfinal.png)
+As colunas Comment, PurchaseOrderNumber e SalesPersonID foram retiradas pq tem mais de 80% de missing.
+As colunas CurrencyRateID, CreditCardApprovalCode e CreditCardID são categóricas e possuem células com a string "NULL", essa string foi trocada por 'undefined'.
 
-Neste banco algumas variáveis possuem um número grande de misssing e poderiam ser retiradas.
+![GitHub Logo](/Images/salesheaderfinal.png)
 
 ### Sales.SpecialOfferProduct
 
@@ -104,7 +116,7 @@ Neste banco algumas variáveis possuem um número grande de misssing e poderiam 
 
 ![GitHub Logo](/Images/offer1.png)
 
-Por fim, neste banco alterie apenas o formato da coluna ModifiedDate para datetime.
+Este banco não possui problemas na estrutura. Por fim, alterei apenas o formato da coluna ModifiedDate para datetime.
 
 ![GitHub Logo](/Images/salesofferfinal.png)
 
